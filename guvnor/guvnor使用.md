@@ -1,30 +1,30 @@
-###启动命令
+### 启动命令
   
 `guv start`
   
-###启动命令帮助  
+### 启动命令帮助  
   
 `guv start -h | guv start --help`  
   
-###重启  
+### 重启  
   
 `guv restart <pid Or name>`  
   
-###删除  
+### 删除  
   
 `guv remove <pid Or name>`  
   
-###列表  
+### 列表  
   
 `guv list`  
   
-###启动web  
+### 启动web  
   
 `guv web`
   
-##使用过程  
+## 使用过程  
   
-###问题
+### 问题
   
 **1、**执行`guv web`报错，报错信息为 `/usr/lib64/libstdc++.so.6 version 'GLIBCXX_3.4.21' not found`  
   
