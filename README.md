@@ -7,3 +7,4 @@
 -  [elasticSearch使用](./ElasticSearch.md)
 -  [connect的理解](./connect库-理解.md)
 -  [node-redis库的使用](./redis.md)
+-  [supertest所遇问题](./supertest.md)
