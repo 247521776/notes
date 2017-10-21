@@ -15,7 +15,7 @@ console.log(util.inspect(process.memoryUsage()));
 -  `rss` : 常驻集的大小
 -  `heapTotal` : 堆的总值
 -  `heapUsed` : 实际使用的堆
--  `external` : 
+-  `external` : 代表V8管理的，绑定到Javascript的C++对象的内存使用情况
   
 ## GC<a name="2"></a>
 
