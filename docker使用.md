@@ -46,13 +46,31 @@ Linux VM_120_89_centos 3.10.0-327.36.3.el7.x86_64 #1 SMP Mon Oct 24 16:09:20 UTC
 
 `docker`的镜像容器存储位置在: `/var/lib/dokcer`
 
+查看`docker`信息
+
+```
+> docker info
+```
+
+`docker`状态
+
+```
+> systemctl status docker
+```
+
+停止`docker`服务
+
+```
+> systemctl stop docker
+```
+
 下载一个镜像
 
 ```
 > docker pull centos:latest
 ```
 
-启动docker
+启动`docker`
 
 ```
 > service docker start
@@ -115,14 +133,14 @@ ctrl + p + q
 > docker logs $CONTAINER_ID
 ```
 
-将机器a镜像迁移到另一台机器上  
-机器a上的操作
+将机器`a`镜像迁移到另一台机器上  
+机器`a`上的操作
 
 ```
 > docker save $CONTAINER_ID > /xxx/xxx.tar
 ```
 
-机器b上的操作
+机器`b`上的操作
 
 ```
 > docker load < /xxx/xxx.tar
