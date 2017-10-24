@@ -44,6 +44,8 @@ Linux VM_120_89_centos 3.10.0-327.36.3.el7.x86_64 #1 SMP Mon Oct 24 16:09:20 UTC
 
 ## docker的使用<a name="4"></a>
 
+`docker`的镜像容器存储位置在: `/var/lib/dokcer`
+
 下载一个镜像
 
 ```
