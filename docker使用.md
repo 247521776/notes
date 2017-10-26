@@ -6,6 +6,8 @@
 	<li><a href="#2">检查条件</a></li>
 	<li><a href="#3">安装docker</a></li>
 	<li><a href="#4">docker使用</a></li>
+	<li><a href="#5">使用docker搭建nodejs项目</a></li>
+	<li><a href="#6">搭建jenkins服务</a></li>
 </ol>
 
 ## 安装docker条件<a name="1"></a>
@@ -145,3 +147,34 @@ ctrl + p + q
 ```
 > docker load < /xxx/xxx.tar
 ```
+
+[官网文档](https://docs.docker.com/get-started/#containers-vs-virtual-machines)  
+[其他docker教程](http://www.linuxidc.com/Linux/2014-12/110947.htms)
+
+## 使用docker搭建nodejs项目<a name="5"></a>
+
+<span style="color:red;">本地mac使用docker，使用镜像为centos</span>
+
+### 下载镜像
+
+`docker pull centos:latest`
+
+### 下载`nodejs`
+
+如没有`yum`命令，可通过`wget`、`curl`命令下载  
+下载成功如没有`make`命令，可通过  
+
+```
+make是gcc的编译器
+yum -y install gcc automake autoconf libtool make
+yum install gcc gcc-c++
+下载编译好的nodejs
+wget http://nodejs.org/dist/v7.6.0/node-v7.6.0.tar.xz
+解压
+tar -xf node-v7.6.0-linux-x64.tar
+创建文件连接
+ln -s /root/node-v7.6.0/bin/node /usr/local/bin/node 
+ln -s /root/node-v7.6.0/bin/npm /usr/local/bin/npm
+```
+
+## 搭建jenkins服务<a name="6"></a>
