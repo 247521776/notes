@@ -178,3 +178,162 @@ ln -s /root/node-v7.6.0/bin/npm /usr/local/bin/npm
 ```
 
 ## 搭建jenkins服务<a name="6"></a>
+
+<span style="color:red">安装必备</span>
+
+-  `jdk`
+-  `tomcat`
+
+### 安装`jdk` 
+
+```
+> yum install java-1.6.0-openjdk
+
+验证生效结果
+> java -version
+```
+
+<span style="color:red">**错误：**</span>
+
+1.
+
+```
+gzip: stdin: not in gzip format
+tar: Child returned status 1
+tar: Error is not recoverable: exiting now
+```
+
+使用命令`file [file]`，查看一下该文件是什么格式，
+
+```
+> file jdk-7u79-linux-x64.tar.gz
+
+jdk-7u79-linux-x64.tar.gz: HTML document, ASCII text, with very long lines, with CRLF line terminators
+```
+
+文件格式为`HTML`，所以不能使用`tar`解压。  
+该错误信息可以参考[该文章](http://www.cnblogs.com/yajing-zh/p/4952940.html)
+
+### 安装`tomcat`
+
+下载`tomcat`，[下载网址](https://tomcat.apache.org/download-90.cgi)
+
+进入目录解压 
+
+`> tar -zxvf [file]`
+
+运行`tomcat`
+
+```
+> ./tomcat/bin/startup.sh
+
+Using CATALINA_BASE:   /yang/download/tomat
+Using CATALINA_HOME:   /yang/download/tomat
+Using CATALINA_TMPDIR: /yang/download/tomat/temp
+Using JRE_HOME:        /yang/download/jdk-9.0.1/jre
+Using CLASSPATH:       /yang/download/tomat/bin/bootstrap.jar:/yang/download/tomat/bin/tomcat-juli.jar
+
+启动成功
+```
+
+### 下载`jenkins`
+
+安装`Jenkins－Stable`源
+
+```
+curl http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo --output /etc/yum.repos.d/jenkins.repo
+rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
+yum clean all
+```
+
+安装`Jenkins－Stable`
+
+`> yum -y install jenkins`
+
+启动`Jenkins`
+
+`> service jenkins start`
+
+设置开机启动  
+
+`> chkconfig jenkins on`
+
+`jenkins`配置文件目录：`/etc/sysconfig/jenkins`
+
+端口配置为`8088`, 用户配置为`root`，执行脚本需要root权限。
+
+#### 系统管理 -> 系统设置  
+
+环境变量设置
+<img src="./jenkins/1.png">
+
+主题设置
+<img src="./jenkins/2.png">
+
+git设置
+<img src="./jenkins/3.png">
+
+#### 系统管理 -> `Configure Global Security`  
+
+授权策略启动安全矩阵，并给相应账号权限。
+
+#### 系统管理 -> `Global Tool Configuration`
+
+git设置
+<img src="./jenkins/4.png">
+
+#### 新建`item`
+
+填写项目名称 -> 选择构建一个自由风格的软件项目
+
+#### 配置`item`
+
+`General`
+
+<img src="./jenkins/5.png">
+点击 高级 显示名称可填写项目中文名称
+
+源码管理
+<img src="./jenkins/6.png">
+
+构建
+<img src="./jenkins/7.png">
+
+<span style="color:red">**错误：**</span>
+
+1、
+
+```
+Starting jenkins (via systemctl): Job for jenkins.service failed. 
+See 'systemctl status jenkins.service' and 'journalctl -xn' for details. 
+[FAILED]
+```
+
+出现此问题，很有可能是因为java未被安装，或者安装的java版本不正确, java -version查看java版本，如果出现类似于如下：   
+java -version   
+java version “1.5.0”   
+gij (GNU libgcj) version 4.4.6 20110731 (Red Hat 4.4.6-3)   
+说明你正在使用默认的GCJ，不能和jenkins兼容，那么需使用如下命令重新安装：  
+卸载之前安装的java，然后重新安装。  
+`yum -y install java-1.6.0-openjdk`
+
+2、 访问不到查看是否防火墙禁止访问
+
+```
+查看防火墙状态
+> firewall-cmd --state
+
+如果防火墙开启
+firewall-cmd --zone=public --add-port=8080/tcp --permanent
+firewall-cmd --zone=public --add-service=http --permanent
+firewall-cmd --reload
+```
+
+3、 报错`java.nio.file.InvalidPathException: Malformed input or input contains unmappable characters`
+
+`jenkins`系统设置 -> 配置节点 -> `Environment variables`配置 -> `file.encoding UTF-8` -> 重启`jenkins`
+
+4、 报错`error: cannot open .git/GETCH_HEAD: Permission denied`  
+
+无权限，`jenkins`账号使用账号为`jenkins`用户，用户改为`root`用户  
+配置文件 `/etc/sysconfig/jenkins`中`JENKINS_USER`改为`root`
