@@ -9,6 +9,6 @@
 -  [node-redis库的使用](./redis.md)
 -  [supertest所遇问题](./supertest.md)
 -  [nodejs学习笔记](./nodejs.md)
--  [docker使用](./docker使用.md)
+-  [docker使用以及jenkins使用](./docker使用.md)
 -  [mysql的日常使用](./mysql.md)
 -  [tabris编写app](./tabris.md)
