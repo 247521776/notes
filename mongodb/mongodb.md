@@ -64,8 +64,9 @@
 | `max` | `number` | (可选)集合最大的文档数 |
 
 -  查看集合：`show collections`
--  删除集合：`db.<collection name>.drop()`  
+-  删除集合：`db.<collection name>.drop()`    
 例如：`db.test.drop()`
+-  查询集合结构：`db.<collection>.find().pretty()`
 
 ## 数据类型
 

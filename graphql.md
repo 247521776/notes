@@ -4,7 +4,7 @@
 安装方式：`npm install graphql --save`  
 [官网](http://graphql.org/graphql-js/)  
 [中文网](http://graphql.cn/)  
-[nodeje教程](https://www.howtographql.com/graphql-js)  
+[nodeje教程](https://www.howtographql.com/graphql-js/1-getting-started/)  
 
 **优点**：可以灵活的设定返回数据结构  
 
@@ -179,7 +179,7 @@ type Post {
 
 ### `apollo-server-express`
 
-该库用于后端服务所用。  
+该库用于后端服务所用。·  
 
 ### `graphql-tools`
 
