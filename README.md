@@ -12,3 +12,4 @@
 -  [docker使用以及jenkins使用](./docker使用.md)
 -  [mysql的日常使用](./mysql.md)
 -  [tabris编写app](./tabris.md)
+-  [Linux日常使用](./Linux日常使用.md)
