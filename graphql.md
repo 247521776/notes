@@ -1,5 +1,7 @@
 # graphql
 
+**该文档主要作用为快速了解`graphql`，以及用法。**
+
 `graphql`是`facebook`创建的`API`查询语言。  
 安装方式：`npm install graphql --save`  
 [官网](http://graphql.org/graphql-js/)  
@@ -41,6 +43,120 @@ type Person {
 ```
 
 这样我们就创建了一个一对多的关系。  
+
+**枚举类型（`Enumeration Types`）**  
+
+-  验证这个类型的任何参数是可选值的某一个
+-  与类型系统沟通，一个字段总是一个有限值集合的其中一个值  
+
+```
+enum Test {
+	ONE
+	TWO
+	THREE
+}
+```
+
+`Test`查询以及返回肯定是`ONE`、`TWO`、`THREE`之一。
+
+**接口（`Interfaces`）**  
+
+一个接口是一个抽象类型，它包含某些字段，而对象类型必须包含这些字段，才能算实现了这个接口。  
+
+例如：  
+
+```
+interface Person {
+	id: ID!
+	name: String!
+	friends: [Person]
+}
+
+type yang implements Person {
+	id:ID!
+	name: String!
+	friends: [Person]
+	totalFriends: Int
+}
+
+type lei implements Person {
+	id: ID!
+	name: String!
+	friends: [Person]
+	age: Int
+}
+```
+
+查询：  
+
+```
+query HeroForPerson($ep: Person) {
+	hero(person: $ep) {
+		name
+		totalFriends
+	}
+}
+```
+
+该查询会报错，原因为查询接口`Person`，而其中并不包含`totalFriends`，如果要查询一个只存在于特定对象类型上的字段，需要使用内联片段：  
+
+```
+query HeroForPerson($ep: Person) {
+	hero(person: $ep) {
+		name
+		... on yang {
+			totalFriends
+		}
+	}
+}
+```
+
+**联合类型（`Union Types`）**  
+
+联合类型和接口十分相似，但是它并不指定类型之间的任何公共字段。  
+
+`union SearchResult = yang | lei`
+
+在我们的`schema`中，任何返回一个`SearchResult`类型的地方，都可能得到一个`yang`、`lei`。
+
+例如：  
+
+```
+query {
+	search(text: "an") {
+		... on yang {
+			name
+			totalFriends
+		}
+		... on lei {
+			name
+			age
+		}
+	}
+}
+```
+
+**输入类型（`Input Types`）**  
+
+目前为止，我们只讨论过将例如枚举和字符串等标量值作为参数传递给字段，但是你也能很容易的传递复杂对象。因为有时候你需要传递一整个对象作为新建对象，输入对象看上去和常规对象一模一样，除了关键字是`input`而不是`type`:  
+
+```
+input ReviewInput {
+	stars: Int!
+	commentary: String
+}
+```
+
+使用输入对象类型：  
+
+```
+mutation CreateReviewForEpisode ($ep: yang, $review: ReviewInput) {
+	createReview (person: $ep, review: $review) {
+		stars
+		commentary
+	}
+}
+```
 
 ## 通过查询获取数据
 
