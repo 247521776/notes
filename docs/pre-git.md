@@ -2,7 +2,7 @@
 
 ## pre-git
 
-可以自动在项目上添加`precommit / pre-push`钩子  
+可以自动在项目上添加`pre-commit / pre-push`钩子  
 
 [git地址](https://github.com/bahmutov/pre-git)
 
