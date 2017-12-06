@@ -13,3 +13,4 @@
 -  [mysql的日常使用](./mysql.md)
 -  [tabris编写app](./tabris.md)
 -  [Linux日常使用](./Linux日常使用.md)
+-  [pre-git与eslint结合使用](./pre-git.md)

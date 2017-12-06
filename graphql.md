@@ -90,24 +90,8 @@ type lei implements Person {
 查询：  
 
 ```
-query HeroForPerson($ep: Person) {
-	hero(person: $ep) {
-		name
-		totalFriends
-	}
-}
-```
-
-该查询会报错，原因为查询接口`Person`，而其中并不包含`totalFriends`，如果要查询一个只存在于特定对象类型上的字段，需要使用内联片段：  
-
-```
-query HeroForPerson($ep: Person) {
-	hero(person: $ep) {
-		name
-		... on yang {
-			totalFriends
-		}
-	}
+query {
+	findYang: yang!
 }
 ```
 
