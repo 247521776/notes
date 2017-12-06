@@ -14,3 +14,4 @@
 -  [tabris编写app](./docs/tabris.md)
 -  [Linux日常使用](./docs/Linux日常使用.md)
 -  [pre-git与eslint结合使用](./docs/pre-git.md)
+-  [graphql的使用](./graphql.md)
