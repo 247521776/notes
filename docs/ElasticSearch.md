@@ -1,6 +1,6 @@
-#elasticsearch
+# elasticsearch
 
-##聚合
+## 聚合
 
 -  分组查询语句
 <pre><code>GET logstash-adev_app_bigdataapp_api-2017.07.05/_search
