@@ -93,7 +93,7 @@ Linux VM_120_89_centos 3.10.0-327.36.3.el7.x86_64 #1 SMP Mon Oct 24 16:09:20 UTC
 删除镜像
 
 ```
-> docker imr $IMAGE_ID
+> docker rmi $IMAGE_ID
 ```
 
 运行一个容器
