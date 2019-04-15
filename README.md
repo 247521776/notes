@@ -15,3 +15,4 @@
 -  [Linux日常使用](./docs/Linux日常使用.md)
 -  [pre-git与eslint结合使用](./docs/pre-git.md)
 -  [graphql的使用](./docs/graphql.md)
+-  [typescript的使用](./docs/typescript)
