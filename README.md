@@ -16,6 +16,3 @@
 -  [pre-git与eslint结合使用](./docs/pre-git.md)
 -  [graphql的使用](./docs/graphql.md)
 -  [typescript的使用](./docs/typescript)
--  [test](#123)
-
-## test{#123}
