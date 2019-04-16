@@ -16,3 +16,4 @@
 -  [pre-git与eslint结合使用](./docs/pre-git.md)
 -  [graphql的使用](./docs/graphql.md)
 -  [typescript的使用](./docs/typescript)
+-  [编程思想](./docs/programming_idea/index.md)
