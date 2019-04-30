@@ -10,6 +10,7 @@
 
 [如何开启有权限的mongodb](http://www.cnblogs.com/zengen/archive/2011/04/23/2025722.html)  
 [实际使用](./实际使用.md)
+[sql对应mongodb](https://docs.mongodb.com/manual/reference/sql-comparison/)
 
 ## 主流存储引擎
 
