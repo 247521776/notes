@@ -96,6 +96,10 @@ Linux VM_120_89_centos 3.10.0-327.36.3.el7.x86_64 #1 SMP Mon Oct 24 16:09:20 UTC
 > docker rmi $IMAGE_ID
 ```
 
+如果删除镜像提示  
+`Error response from daemon: conflict: unable to delete 9f38484d220f (must be forced) - image is referenced in multiple repositories`  
+说明有两个镜像id相同，需执行命令`docker rmi -f $IMAGE_ID`
+
 运行一个容器
 
 ```
