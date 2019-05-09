@@ -9,7 +9,7 @@
 -  [node-redis库的使用](./docs/redis.md)
 -  [supertest所遇问题](./docs/supertest.md)
 -  [nodejs学习笔记](./docs/nodejs.md)
--  [docker使用以及jenkins使用](./docs/docker使用.md)
+-  [docker使用以及jenkins使用](./docs/docker/docker使用.md)
 -  [mysql的日常使用](./docs/mysql.md)
 -  [tabris编写app](./docs/tabris.md)
 -  [Linux日常使用](./docs/Linux日常使用.md)
