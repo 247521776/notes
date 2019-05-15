@@ -269,13 +269,13 @@ yum clean all
 #### 系统管理 -> 系统设置  
 
 环境变量设置
-<img src="./jenkins/1.png">
+<img src="../jenkins/1.png">
 
 主题设置
-<img src="./jenkins/2.png">
+<img src="../jenkins/2.png">
 
 git设置
-<img src="./jenkins/3.png">
+<img src="../jenkins/3.png">
 
 #### 系统管理 -> `Configure Global Security`  
 
@@ -284,7 +284,7 @@ git设置
 #### 系统管理 -> `Global Tool Configuration`
 
 git设置
-<img src="./jenkins/4.png">
+<img src="../jenkins/4.png">
 
 #### 新建`item`
 
@@ -294,14 +294,14 @@ git设置
 
 `General`
 
-<img src="./jenkins/5.png">
+<img src="../jenkins/5.png">
 点击 高级 显示名称可填写项目中文名称
 
 源码管理
-<img src="./jenkins/6.png">
+<img src="../jenkins/6.png">
 
 构建
-<img src="./jenkins/7.png">
+<img src="../jenkins/7.png">
 
 <span style="color:red">**错误：**</span>
 
