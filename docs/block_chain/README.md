@@ -4,7 +4,7 @@
 ## eth
 
 - [web3使用中问题解决记录](./eth/web3_question.md)
-- [ethereumjs-tx使用中问题解决记录](./eth/ethereumjs_ts_question.md.md)
+- [ethereumjs-tx使用中问题解决记录](./eth/ethereumjs_ts_question.md)
 
 # 区块链中的概念
 
