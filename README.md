@@ -18,3 +18,4 @@
 -  [typescript的使用](./docs/typescript)
 -  [编程思想](./docs/programming_idea/index.md)
 -  [区块链相关知识文档](./docs/block_chain/README.md)
+-  [vscode插件](./docs/vscode插件.md)
